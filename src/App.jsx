@@ -12,7 +12,7 @@ this.getData()
 getData() {
   fetch('http://localhost:3001/api/v1/rescue-animals')
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => this.props.getAnimals(data))
 }
 
   render() {
