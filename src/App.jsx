@@ -18,12 +18,13 @@ class App extends Component {
 
 componentDidMount() {
 this.getData()
+this.getDonations()
 }
 
 getDonations() {
   fetch('http://localhost:3001/api/v1/donations')
     .then(res => res.json())
-    .then(data => this.props.getDonationData(data))
+    .then(data => this.props.getDonation(data))
     .catch(error => this.setState({isError: error}))
 }
 
