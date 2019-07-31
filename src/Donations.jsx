@@ -14,7 +14,7 @@ constructor(props) {
     console.log(this.props.donation)
     const {name, donation} = this.props.donation
     return (
-      <div className='card'>
+      <div className='donation'>
         <h2>{name}</h2>
         <p>{donation}</p>
       </div>

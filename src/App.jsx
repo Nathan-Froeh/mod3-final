@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import './App.css';
+import './App.scss';
 import {getAnimalsAction} from './Actions/getAnimalsAction'
 import {connect} from 'react-redux'
 import CardContainer from './CardContainer';
 import {getDonationAction} from './Actions/getDonationAction'
-import DonationContainer from './DonationContainer'
+import DonationContainer from './DonationContainer';
+import Form from './Form';
 
 class App extends Component {
   constructor() {
@@ -51,6 +52,7 @@ donationLoaded(donation) {
   return (
 
     <div className="App">
+      <Form/>
       {this.state.isError && <p>{this.state.isError}</p>}
       {!this.state.isError && !this.state.animalLoaded && 'Is Loading'}
       {!this.state.isError && this.state.animalLoaded && <CardContainer/>}

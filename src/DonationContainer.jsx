@@ -14,11 +14,12 @@ class DonationContainer extends Component {
   render() {
     console.log('yes')
     const donations = this.props.donations.map((donation) => {
+      console.log(donation)
       return (<Donations donation={donation} key={donation.id}/>)
   })
 
     return (
-      <div>
+      <div className='donation-container'>
         {donations}
       </div>
     )

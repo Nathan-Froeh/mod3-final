@@ -1,8 +1,8 @@
 
-export const getDonationReducer = (state = 'none', action) => {
+export const getDonationReducer = (state = [], action) => {
   switch(action.type) {
     case 'GET_DONATION':
-      return action.payload;
+      return [...state, ...action.payload];
     default:
       return state;
   }

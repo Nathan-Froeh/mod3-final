@@ -1,0 +1,33 @@
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
+
+  .form {
+    width: 100%;
+    height: 10%;
+  }
+
+  .card-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    .card {
+      padding: 10px;
+      height: auto;
+      width: 40%;
+      img{
+        height: 100px;
+        width: auto;
+      }
+    }
+  }
+
+  .donation-container {
+    width: 20%;
+    .donation {
+      height: 100px;
+      width: 90%;
+    }
+  }
+}
