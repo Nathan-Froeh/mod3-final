@@ -35,7 +35,7 @@ export class Form extends Component {
         <form onSubmit={this.handlSubmit}>
           <input type="text" name='name' placeholder='Name' onChange={this.handleChange}/>
           <input type="text" name='donation' placeholder='Donation' onChange={this.handleChange}/>
-          <input type="submit"/>
+          <input type="submit" value='Donate!'/>
         </form>
       </div>
     )
