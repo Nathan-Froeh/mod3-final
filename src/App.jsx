@@ -4,14 +4,15 @@ import {getAnimalsAction} from './Actions/getAnimalsAction'
 import {connect} from 'react-redux'
 import CardContainer from './CardContainer';
 import {getDonationAction} from './Actions/getDonationAction'
-
+import DonationContainer from './DonationContainer'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      isLoaded: false,
-      isError: ''
+      animalLoaded: false,
+      isError: '',
+      donationLoaded: false
     }
   }
 
@@ -24,20 +25,26 @@ this.getDonations()
 getDonations() {
   fetch('http://localhost:3001/api/v1/donations')
     .then(res => res.json())
-    .then(data => this.props.getDonation(data))
+    .then(data => this.donationLoaded(data))
     .catch(error => this.setState({isError: error}))
 }
 
 getData() {
   fetch('http://localhost:3001/api/v1/rescue-animals')
     .then(res => res.json())
-    .then(data => this.loaded(data))
+    .then(data => this.animalLoaded(data))
     .catch(error => this.setState({isError: error}))
 }
 
-loaded(data) {
+animalLoaded(data) {
   this.props.getAnimals(data)
-  this.setState({isLoaded: true})
+  this.setState({animalLoaded: true})
+}
+
+donationLoaded(donation) {
+  
+  this.props.getDonation(donation)
+  this.setState({donationLoaded: true})
 }
 
   render() {
@@ -45,8 +52,9 @@ loaded(data) {
 
     <div className="App">
       {this.state.isError && <p>{this.state.isError}</p>}
-      {!this.state.isError && !this.state.isLoaded && 'Is Loading'}
-      {!this.state.isError && this.state.isLoaded && <CardContainer/>}
+      {!this.state.isError && !this.state.animalLoaded && 'Is Loading'}
+      {!this.state.isError && this.state.animalLoaded && <CardContainer/>}
+      {this.state.donationLoaded && <DonationContainer/>}
     </div>
   );
   }

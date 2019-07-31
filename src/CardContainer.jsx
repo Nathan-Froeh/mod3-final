@@ -24,10 +24,6 @@ class CardContainer extends Component {
   }
 }
 
-// const mapDispatchToProps = dispatch => ({
-
-// })
-
 const mapStateToProps = state => ({
   animals: state.animals
 })
