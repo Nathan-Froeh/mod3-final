@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import {getDonationAction} from './Actions/getDonationAction'
 import React, { Component } from 'react'
+import {addDonation} from './API'
 
 export class Form extends Component {
   constructor() {
@@ -16,7 +17,7 @@ export class Form extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  handlSubmit = (e) => {
+  handlSubmit = async (e) => {
 
     e.preventDefault()
     const donation = {
@@ -24,16 +25,7 @@ export class Form extends Component {
       name: this.state.name,
       donation: this.state.donation
     }
-
-    const method = {
-      method: 'POST',
-      body: JSON.stringify(donation),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    fetch('http://localhost:3001/api/v1/donations/', method)
-      .then(res => res.json())
+    await addDonation(donation)
       .then(data => this.props.getDonation([data]))
   }
 

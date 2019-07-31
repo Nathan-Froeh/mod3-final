@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './Card.scss'
 
 
 export class Donations extends Component {
@@ -11,7 +10,6 @@ constructor(props) {
 }
 
   render() {
-    console.log(this.props.donation)
     const {name, donation} = this.props.donation
     return (
       <div className='donation'>
