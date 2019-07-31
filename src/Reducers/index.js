@@ -1,15 +1,9 @@
 import {combineReducers} from 'redux';
 import {getAnimalsReducer} from './getAnimalsReducer'
+import {getDonationReducer} from './getDonationReducer'
 
-
-const test = (state) => {
-  switch(state) {
-    default:
-      return 'test'
-  }
-}
 
 export const allReducers = combineReducers({
-  test: test,
-  animals: getAnimalsReducer
+  animals: getAnimalsReducer,
+  donations: getDonationReducer
 })
