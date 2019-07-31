@@ -6,6 +6,7 @@ import CardContainer from './CardContainer';
 import {getDonationAction} from './Actions/getDonationAction'
 import DonationContainer from './DonationContainer';
 import Form from './Form';
+import {getDonations, getData} from './API'
 
 class App extends Component {
   constructor() {
@@ -23,16 +24,14 @@ this.getData()
 this.getDonations()
 }
 
-getDonations() {
-  fetch('http://localhost:3001/api/v1/donations')
-    .then(res => res.json())
+getDonations = async() => {
+  await getDonations()
     .then(data => this.donationLoaded(data))
     .catch(error => this.setState({isError: error}))
 }
 
-getData() {
-  fetch('http://localhost:3001/api/v1/rescue-animals')
-    .then(res => res.json())
+getData = async() => {
+  await getData()
     .then(data => this.animalLoaded(data))
     .catch(error => this.setState({isError: error}))
 }

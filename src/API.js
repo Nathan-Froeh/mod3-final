@@ -14,13 +14,11 @@ export const addDonation = (donation) => {
 export const getDonations = () => {
   return fetch('http://localhost:3001/api/v1/donations')
     .then(res => res.json())
-    .then(data => this.donationLoaded(data))
-    .catch(error => this.setState({isError: error}))
+    
 }
 
 export const getData = () => {
   return fetch('http://localhost:3001/api/v1/rescue-animals')
     .then(res => res.json())
-    .then(data => this.animalLoaded(data))
-    .catch(error => this.setState({isError: error}))
+    
 }
